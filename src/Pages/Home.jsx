@@ -16,7 +16,9 @@ export default function Home() {
                     <Link to="/signup">
                         <button className="capitalize btn btn-primary px-4 py-2 rounded-md font-semibold">register</button>
                     </Link>
-                    <button className="capitalize btn btn-warning px-4 py-2 rounded-md font-semibold">login</button>
+                    <Link to="/signin">
+                        <button className="capitalize btn btn-warning px-4 py-2 rounded-md font-semibold">login</button>
+                    </Link>
                 </div>
             </div>
         </div>

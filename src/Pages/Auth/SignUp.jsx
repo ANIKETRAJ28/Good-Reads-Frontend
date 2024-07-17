@@ -1,6 +1,43 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { signup } from "Redux/Slices/authSlice";
 
 export default function SignUp() {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [formDetails, setFormDetails] = useState({
+        email: '',
+        password: '',
+        username: ''
+    });
+
+    function resetFormDetails() {
+        setFormDetails({
+            email: '',
+            password: '',
+            username: ''
+        });
+    }
+
+    async function onHandleSubmit(e) {
+        e.preventDefault();
+        console.log(formDetails);
+        const response = await dispatch(signup(formDetails));
+        console.log(response);
+        if(response.payload.status == 201) {
+            navigate("/signin");
+            resetFormDetails();
+        }
+    }
+
+    function setValue(e) {
+        const {name, value} = e.target;
+        setFormDetails({...formDetails, [name]: value});
+    }
+
     return (
         <div className="h-[100vh] flex flex-col justify-center">
             <div className="flex flex-col items-center gap-4">
@@ -12,26 +49,35 @@ export default function SignUp() {
                     </Link>
                 </div>
             </div>
-            <form className="flex flex-col items-center gap-8 w-[80%] mx-auto my-4">
+            <form onSubmit={onHandleSubmit} className="flex flex-col items-center gap-8 w-[80%] mx-auto my-4">
                 <div className="w-80 text-white">
                     <input 
+                        name="username"
+                        value={formDetails.username}
                         type="text"
                         placeholder="Username..."
                         className="w-full py-3 px-6 focus:outline-none focus:bg-white focus:text-black"
+                        onChange={setValue}
                     />
                 </div>
                 <div className="w-80 text-white">
                     <input 
+                        name="email"
+                        value={formDetails.email}
                         type="email"
                         placeholder="Email..."
                         className="w-full py-3 px-6 focus:outline-none focus:bg-white focus:text-black"
+                        onChange={setValue}
                     />
                 </div>
                 <div className="w-80 text-white">
                     <input 
+                        name="password"
+                        value={formDetails.password}
                         type="password"
                         placeholder="Password..."
                         className="w-full py-3 px-6 focus:outline-none focus:bg-white focus:text-black"
+                        onChange={setValue}
                     />
                 </div>
                 <div className="w-80 text-white">
