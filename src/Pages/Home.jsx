@@ -1,4 +1,5 @@
 import Logo from "Assets/BookShelf.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -12,7 +13,9 @@ export default function Home() {
                     <div className="capitalize text-center text-warning">your personal library and social network for bookworms</div>
                 </div>
                 <div className="text-lg text-black flex gap-4">
-                    <button className="capitalize btn btn-primary px-4 py-2 rounded-md font-semibold">register</button>
+                    <Link to="/signup">
+                        <button className="capitalize btn btn-primary px-4 py-2 rounded-md font-semibold">register</button>
+                    </Link>
                     <button className="capitalize btn btn-warning px-4 py-2 rounded-md font-semibold">login</button>
                 </div>
             </div>
