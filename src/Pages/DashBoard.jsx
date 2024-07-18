@@ -1,3 +1,4 @@
+import BookCard from "Components/BookCard/BookCard";
 import Layout from "Layout/Layout";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -12,7 +13,7 @@ export default function DashBoard() {
     }, []);
     return (
         <Layout>
-            <h1>Dashboard</h1>
+            <BookCard title="Harry potter" description="Harry Potter Harry Potter Harry Potter Harry Potter Harry Potter" author="Harry"/>
         </Layout>
     );
 }
