@@ -4,6 +4,7 @@ import BookDescription from "Pages/BookDescription";
 import DashBoard from "Pages/DashBoard";
 import Home from "Pages/Home";
 import NotFound from "Pages/NotFound";
+import Shelf from "Pages/Shelf";
 import { Route, Routes } from "react-router-dom";
 
 export default function MainRoutes() {
@@ -14,6 +15,7 @@ export default function MainRoutes() {
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/dashboard" element={<DashBoard/>}/>
             <Route path="/book/description" element={<BookDescription/>}/>
+            <Route path="/shelf" element={<Shelf/>}/>
 
             <Route path="*" element={<NotFound/>}/>
         </Routes>

@@ -12,13 +12,13 @@ export default function NavBar() {
     }
 
     return (
-        <div className="navbar bg-neutral px-8">
+        <div className="navbar drawer drawer-open bg-neutral px-8 z-10">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl">BookShelf</a>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                {authState.isLoggedIn && <li><Link>Shelfs</Link></li>}
+                {authState.isLoggedIn && <li><Link to="/shelf">Shelfs</Link></li>}
                 {authState.isLoggedIn && <li><Link>{localStorage.getItem("username")}</Link></li>}
                 <li>
                     <details>
