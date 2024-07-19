@@ -1,5 +1,6 @@
 import SignIn from "Pages/Auth/SignIn";
 import SignUp from "Pages/Auth/SignUp";
+import BookDescription from "Pages/BookDescription";
 import DashBoard from "Pages/DashBoard";
 import Home from "Pages/Home";
 import NotFound from "Pages/NotFound";
@@ -12,6 +13,7 @@ export default function MainRoutes() {
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/dashboard" element={<DashBoard/>}/>
+            <Route path="/book/description" element={<BookDescription/>}/>
 
             <Route path="*" element={<NotFound/>}/>
         </Routes>

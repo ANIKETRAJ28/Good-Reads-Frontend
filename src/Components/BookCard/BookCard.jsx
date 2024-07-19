@@ -1,25 +1,29 @@
 import BookIcon from "Assets/BookIcon.jpg";
 import { AiOutlineUser } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
-export default function BookCard({author, title, description}) {
+export default function BookCard(data) {
+
+    const navigate = useNavigate();
+
     return (
-        <div className=" flex-col card card-side mt-5 bg-gray-800 w-9/12 shadow-lg md:flex-row">
-            <figure>
+        <div className="card md:card-side my-5 bg-gray-800 w-9/12 shadow-lg">
+            <figure className="h-full">
                 <img
-                    className="w-[15rem]"
+                    className="md:w-[15rem]"
                     src={BookIcon}
                     alt="Movie" 
                     />
             </figure>
             <div className="card-body">
-                <h2 className="card-title text-4xl">{title}</h2>
-                <p>{description}</p>
-                <div className="card-actions justify-between">
-                    <div className="flex items-center gap-2 text-xl">
+                <h2 className="card-title text-xl md:text-4xl">{data.data.title}</h2>
+                <p>{data.data.description}</p>
+                <div className="card-actions flex-col md:flex-row justify-between">
+                    <div className="flex items-center gap-2 md:text-xl">
                         <AiOutlineUser />
-                        {author}
+                        {data.data.author.name}
                     </div>
-                <button className="btn btn-primary">More Details</button>
+                    <button onClick={() => navigate("/book/description", {state: {...data}})} className="btn btn-primary">More Details</button>
                 </div>
             </div>
         </div>

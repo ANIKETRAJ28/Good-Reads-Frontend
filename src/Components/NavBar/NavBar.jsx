@@ -14,7 +14,7 @@ export default function NavBar() {
     return (
         <div className="navbar bg-neutral px-8">
             <div className="flex-1">
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">BookShelf</a>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">

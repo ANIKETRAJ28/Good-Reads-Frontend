@@ -10,7 +10,7 @@ const initialState = {
 
 export const signup = createAsyncThunk("auth/signup", async (data) => {
     try {
-        const response = axiosConfig.post("/signup", data);
+        const response = axiosConfig.post("signup", data);
         toast.promise(response, {
             success: "Successfully signedUp!!",
             loading: "Signing...",
@@ -24,7 +24,7 @@ export const signup = createAsyncThunk("auth/signup", async (data) => {
 
 export const signin = createAsyncThunk("auth/signin", async (data) => {
     try {
-        const response = axiosConfig.post("/signin", data);
+        const response = axiosConfig.post("signin", data);
         toast.promise(response, {
             success: "Successfully signedIn!!",
             loading: "Signing...",
